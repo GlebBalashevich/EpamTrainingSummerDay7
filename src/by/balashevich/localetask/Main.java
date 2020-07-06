@@ -7,11 +7,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         for (int i = 0; i < 3; i++) {
             System.out.println("Choose locale: \n 1 - English; \n 2 - Belarusian; \n any - Russian.");
-            int choice = (char) scanner.nextInt();
+            int choice = scanner.nextInt();
             String language = "";
             String country = "";
+
             switch (choice) {
                 case 1:
                     language = "EN";
@@ -21,7 +23,10 @@ public class Main {
                     language = "BE";
                     country = "BY";
                     break;
+                default:
+                    break;
             }
+
             Locale current = new Locale(language, country);
             ResourceBundle resourceBundle = ResourceBundle.getBundle("datares.text", current);
             String phrase1 = resourceBundle.getString("phrase1");
